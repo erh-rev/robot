@@ -140,6 +140,7 @@ public class OpMode_21403_202501288 extends LinearOpMode {
             String position_pivot_pince_string == "attraper";
         }
         telemetry.addData("bras téléscopique", brastéléscopique.getCurrentPosition());
+        telemetry.addData("pivot pince : ",position_pivot_pince_string);
         telemetry.update();
       }
     }
