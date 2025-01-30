@@ -9,9 +9,13 @@ private void reculer(double puissance) {
     rouegauche.setPower(-puissance);
 }
 
-private void tourner(double puissance) {
+private void tourner_droite(double puissance) {
     rouedroite.setPower(puissance);
     rouegauche.setPower(-puissance);
+}
+private void tourner_gauche(double puissance){
+    rouedroite.setPower(-puissance);
+    rouegauche.setPower(puissance);
 }
 @Override
 public void runOpMode() {
