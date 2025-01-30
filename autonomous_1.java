@@ -1,22 +1,23 @@
+@Autonomous(name = "TestAutonomeGregoire")
+    public class TestAutonomeGregoire extends LinearOpMode {
+        static void avancer(double puissance) {
+        rouedroite.setPower(puissance);
+        rouegauche.setPower(puissance);
+    }
 
-static void avancer(double puissance) {
-    rouedroite.setPower(puissance);
-    rouegauche.setPower(puissance);
-}
+    static void reculer(double puissance) {
+        rouedroite.setPower(-puissance);
+        rouegauche.setPower(-puissance);
+    }
 
-static void reculer(double puissance) {
-    rouedroite.setPower(-puissance);
-    rouegauche.setPower(-puissance);
-}
-
-static void tourner_droite(double puissance) {
-    rouedroite.setPower(puissance);
-    rouegauche.setPower(-puissance);
-}
-static void tourner_gauche(double puissance){
-    rouedroite.setPower(-puissance);
-    rouegauche.setPower(puissance);
-}
+    static void tourner_droite(double puissance) {
+        rouedroite.setPower(puissance);
+        rouegauche.setPower(-puissance);
+    }
+    static void tourner_gauche(double puissance){
+        rouedroite.setPower(-puissance);
+        rouegauche.setPower(puissance);
+    }
 @Override
 public void runOpMode() {
     // Initialisation des moteurs et servos comme précédemment
