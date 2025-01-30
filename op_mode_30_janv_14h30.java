@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp(name = "OpMode_21403_202501288 (Blocks to Java)")
+@TeleOp(name = "OpMode_21403_202501288")
 public class OpMode_21403_202501288 extends LinearOpMode {
 
   private DcMotor pantographe;
