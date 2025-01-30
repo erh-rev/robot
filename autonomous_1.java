@@ -1,19 +1,19 @@
 
-private void avancer(double puissance) {
+static void avancer(double puissance) {
     rouedroite.setPower(puissance);
     rouegauche.setPower(puissance);
 }
 
-private void reculer(double puissance) {
+static void reculer(double puissance) {
     rouedroite.setPower(-puissance);
     rouegauche.setPower(-puissance);
 }
 
-private void tourner_droite(double puissance) {
+static void tourner_droite(double puissance) {
     rouedroite.setPower(puissance);
     rouegauche.setPower(-puissance);
 }
-private void tourner_gauche(double puissance){
+static void tourner_gauche(double puissance){
     rouedroite.setPower(-puissance);
     rouegauche.setPower(puissance);
 }
