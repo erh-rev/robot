@@ -34,12 +34,17 @@ public void runOpMode() {
         sleep(2000); // Reculer pendant 2000 ms (2 secondes)
 
         // Tourner pendant 2 secondes
-        tourner(0.5);
+        tourner_gauche(0.5);
         sleep(2000); //tourner pendant 2 secondes
         // Arrêter le robot
         rouedroite.setPower(0);
         rouegauche.setPower(0);
         
-        // Ajoutez d'autres logiques ou conditions si nécessaire
+        // Tourner pendant 2 secondes
+        tourner_droite(0.5);
+        sleep(2000); //tourner pendant 2 secondes
+        // Arrêter le robot
+        rouedroite.setPower(0);
+        rouegauche.setPower(0);        
     }
 }
