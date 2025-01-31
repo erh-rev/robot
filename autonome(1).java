@@ -93,9 +93,20 @@ public class autonome extends LinearOpMode {
         rouedroite.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rouegauche.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         runtime.reset();
-        while (runtime.second() < 2){
-          brastéléscopique.setpower(1);
+        while (runtime.seconds() < 2){
+          if (pantographe.getCurrentPosition() < 3700) {
+            pantographe.setPower(1);
+          }
+          brastéléscopique.setPower(1);
         }
+        runtime.reset();
+        while (runtime.seconds() < 2){
+          pivotpince.setPosition(0.93);
+          //je ne sais pas si c'est déposer
+          telemetry.addData("position_pince :","repos");
+          telemetry.update();
+        }
+        runtime.reset();
         telemetry.update();
       }
     }
