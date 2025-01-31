@@ -29,13 +29,14 @@ public class autonome extends LinearOpMode {
     //môa == trueil
     //pivotpince== pivotpince
     //je ne suis pas sur que ce qoit bien ça, pensez à verifier.
-    treuil = hardwareMap.get(DcMotor.class, "treuil");
     pantographe = hardwareMap.get(DcMotor.class, "pantographe");
-    rouedroite = hardwareMap.get(DcMotor.class, "rouedroite");
-    rouegauche = hardwareMap.get(DcMotor.class, "rouegauche");
-    pivotpince= hardwareMap.get(DcMotor.class, "pivotpince");
-
-    // Put initialization blocks here.
+    brastéléscopique = hardwareMap.get(DcMotor.class, "bras téléscopique");
+    treuil = hardwareMap.get(DcMotor.class, "treuil");
+    pivotpince = hardwareMap.get(Servo.class, "pivot pince");
+    rouedroite = hardwareMap.get(DcMotor.class, "roue droite");
+    rouegauche = hardwareMap.get(DcMotor.class, "roue gauche");
+    aideaudémarrage = hardwareMap.get(Servo.class, "aide au démarrage");
+    pince = hardwareMap.get(Servo.class, "pince");
     treuil.setPower(0);
     pantographe.setPower(0);
     rouedroite.setPower(0);
@@ -93,7 +94,7 @@ public class autonome extends LinearOpMode {
         rouegauche.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         runtime.reset();
         while (runtime.second() < 2){
-
+          brastéléscopique.setpower(1);
         }
         telemetry.update();
       }
