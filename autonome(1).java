@@ -7,12 +7,14 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name = "autonome (Blocks to Java)")
 public class autonome extends LinearOpMode {
-
-  private DcMotor moâ;
   private DcMotor pantographe;
-  private DcMotor roue1;
-  private DcMotor roue2;
-  private DcMotor superman;
+  private DcMotor brastéléscopique;
+  private DcMotor rouedroite;
+  private DcMotor rouegauche;
+  private Servo aideaudémarrage;
+  private Servo pince;
+  private Servo pivotpince;
+  private DcMotor treuil;
 
   /**
    * Phase autonome: penser à renomer les moteurs en recopiant
@@ -22,19 +24,23 @@ public class autonome extends LinearOpMode {
   @Override
   public void runOpMode() {
     ElapsedTime runtime;
-
-    moâ = hardwareMap.get(DcMotor.class, "moâ");
+    //à verifier: roue1 == rouedroite
+    //roue 2 == rouegauche
+    //môa == trueil
+    //pivotpince== pivotpince
+    //je ne suis pas sur que ce qoit bien ça, pensez à verifier.
+    treuil = hardwareMap.get(DcMotor.class, "treuil");
     pantographe = hardwareMap.get(DcMotor.class, "pantographe");
-    roue1 = hardwareMap.get(DcMotor.class, "roue 1");
-    roue2 = hardwareMap.get(DcMotor.class, "roue 2");
-    superman = hardwareMap.get(DcMotor.class, "superman");
+    rouedroite = hardwareMap.get(DcMotor.class, "rouedroite");
+    rouegauche = hardwareMap.get(DcMotor.class, "rouegauche");
+    pivotpince= hardwareMap.get(DcMotor.class, "pivotpince");
 
     // Put initialization blocks here.
-    moâ.setPower(0);
+    treuil.setPower(0);
     pantographe.setPower(0);
-    roue1.setPower(0);
-    roue2.setPower(0);
-    superman.setPower(0);
+    rouedroite.setPower(0);
+    rouegauche.setPower(0);
+    pivotpince.setPower(0);
     runtime = new ElapsedTime();
     waitForStart();
     if (opModeIsActive()) {
@@ -43,40 +49,52 @@ public class autonome extends LinearOpMode {
         // Put loop blocks here.
         runtime.reset();
         while (runtime.seconds() < 2) {
-          roue1.setPower(1);
-          roue2.setPower(-1);
+          rouedroite.setPower(1);
+          rouegauche.setPower(-1);
           telemetry.addData("avancer :", "oui (2secondes)");
           telemetry.update();
         }
-        roue1.setPower(0);
-        roue2.setPower(0);
+        rouedroite.setPower(0);
+        rouegauche.setPower(0);
+        rouedroite.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rouegauche.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         runtime.reset();
         while (runtime.seconds() < 2) {
-          roue1.setPower(-1);
-          roue2.setPower(1);
+          rouedroite.setPower(-1);
+          rouegauche.setPower(1);
           telemetry.addData("reculer :", "oui (2secondes)");
           telemetry.update();
         }
-        roue1.setPower(0);
-        roue2.setPower(0);
+        rouedroite.setPower(0);
+        rouegauche.setPower(0);
+        rouedroite.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rouegauche.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         runtime.reset();
         while (runtime.seconds() < 2) {
-          roue1.setPower(1);
-          roue2.setPower(1);
+          rouedroite.setPower(1);
+          rouegauche.setPower(1);
           telemetry.addData("tourner_gauche :", "oui (2secondes)");
           telemetry.update();
         }
-        roue1.setPower(0);
-        roue1.setPower(0);
+        rouedroite.setPower(0);
+        rouedroite.setPower(0);
+        rouedroite.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rouegauche.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         runtime.reset();
         while (runtime.seconds() < 2) {
-          roue1.setPower(-1);
-          roue2.setPower(-1);
+          rouedroite.setPower(-1);
+          rouegauche.setPower(-1);
           telemetry.addData("tourner_droite :", "oui (2secondes)");
           telemetry.update();
         }
-        roue1.setPower(0);
-        roue2.setPower(0);
+        rouedroite.setPower(0);
+        rouegauche.setPower(0);
+        rouedroite.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rouegauche.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        runtime.reset();
+        while (runtime.second() < 2){
+
+        }
         telemetry.update();
       }
     }
